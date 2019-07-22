@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>VR Sushi Bar</title>
+      <meta charset="utf-8" />
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="js/main.js"></script>
+  </head>
+  <body>
+    <a-scene id="scene">
+
+      <!-- Geluid voor zalm snijden -->
+      <a-sound
+        id="snijgeluid"
+        src="src: url(geluid/snijden2.mp3)"></a-sound>
+
+      <!-- Rondleiding -->
+      <a-sound
+        id="intro"
+        src="src: url(geluid/Intro.m4a)"></a-sound>
+
+      <!-- Snijden -->
+      <a-entity
+      id="snijden"
+      sound="src: url(geluid/Snijden.m4a); "></a-entity>
+
+      <!-- Samenstellen -->
+      <a-sound
+        id="samenstellen"
+        src="src: url(geluid/Samenstellen.m4a)"></a-sound>
+
+      <!-- Serveren -->
+      <a-sound
+        id="serveren"
+        src="src: url(geluid/Serveren.m4a)"></a-sound>
+
+      <!-- Kookboek -->
+      <a-sound
+        id="kookboek"
+        src="src: url(geluid/Kookboek.m4a)"></a-sound>
+
+      <!-- Succes -->
+      <a-sound
+        id="succes"
+        src="src: url(geluid/Succes.m4a)"></a-sound>
+
+      <!-- Creeër vloer -->
+      <a-plane
+        rotation="-90 0 0"
+        position="0 0 0"
+        src="images/tegel.jpg"
+        width="16"
+        height="16">
+      </a-plane>
+
+    <!-- Creeër plafond -->
+          <a-plane
+               rotation="90 0 0"
+               position="0 4 0"
+               src="images/plafond.jpg"
+               width="16"
+               height="16">
+        </a-plane>
+
+     <!-- Creeër muur voor -->
+        <a-plane
+               position="0 2 -8"
+               src="images/muren.jpg"
+               width="16"
+               height="4">
+        </a-plane>
+
+          <!-- Creeër muur achter -->
+        <a-plane
+               rotation="180 0 180"
+               position="0 2 8"
+               src="images/muren.jpg"
+               width="16"
+               height="4">
+        </a-plane>
+
+          <!-- Creeër muur links -->
+        <a-plane
+               rotation="0 90 0"
+               position="-8 2 0"
+               src="images/muren.jpg"
+               width="16"
+               height="4">
+        </a-plane>
+
+          <!-- Creeër muur rechts -->
+        <a-plane
+               rotation="0 -90 0"
+               position="8 2 0"
+               src="images/muren.jpg"
+               width="16"
+               height="4">
+        </a-plane>
+
+      <!-- Creeër snijplank -->
+      <a-box
+        rotation="0 90 0"
+        id="snijplank"
+        position="2.5 0.9 -0.3"
+        src="images/snijplank.jpg"
+        height="0.10"
+        width="1.5"
+        scale="1 1 1.430">
+      </a-box>
+
+    <!-- Creeër bord-->
+    <a-box
+        id="bord"
+        position="0.3 0.8 -1.818"
+        color="#131416"
+        height="0.15"
+        width="2"
+        scale = "0.5 0.5 0.5">
+      </a-box>
+
+    <!-- Creeër naambordje rijst -->
+    <a-plane
+
+      id="naamRijst"
+
+      rotation="-17.35 45 0"
+      position="-1.2 0.864 -1.537"
+      color="#E1D3C1"
+      width="0.3"
+      height="0.1">
+      <a-text
+      value="Sushi-rijst"
+      color="#000000"
+      height="1"
+      width="1"
+      position="-0.1 0 0"
+      ></a-text>
+    </a-plane>
+
+    <!-- Creeër naambordje norivel -->
+    <a-plane
+
+      id="naamNori"
+
+      rotation="-17.35 0 0"
+      position="-0.758 0.895 -2.321"
+      color="#E1D3C1"
+      width="0.4"
+      height="0.2">
+      <a-text
+      value="Norivel"
+      color="#000000"
+      height="2"
+      width="2"
+      position="-0.15 0 0"
+      ></a-text>
+    </a-plane>
+
+    <!-- Creeër naambordje komkommer -->
+    <a-plane
+
+      id="naamKomkommer"
+
+      rotation="-17.35 0 0"
+      position="0.019 0.895 -2.321"
+      color="#E1D3C1"
+      width="0.6"
+      height="0.2">
+      <a-text
+      value="Komkommer"
+      color="#000000"
+      height="2"
+      width="2"
+      position="-0.25 0 0"
+      ></a-text>
+    </a-plane>
+
+    <!-- Creeër naambordje tonijn -->
+    <a-plane
+
+      id="naamTonijn"
+
+      rotation="-17.35 0 0"
+      position="0.791 0.895 -2.321"
+      color="#E1D3C1"
+      width="0.4"
+      height="0.2">
+      <a-text
+      value="Tonijn"
+      color="#000000"
+      height="2"
+      width="2"
+      position="-0.15 0 0"
+      ></a-text>
+    </a-plane>
+
+    <!-- Creeër naambordje zalm -->
+    <a-plane
+
+      id="naamZalm"
+
+      rotation="-17.35 0 0"
+      position="1.591 0.895 -2.321"
+      color="#E1D3C1"
+      width="0.4"
+      height="0.2">
+      <a-text
+      value="Zalm"
+      color="#000000"
+      height="2"
+      width="2"
+      position="-0.1 0 0"
+      ></a-text>
+    </a-plane>
+
+    <!--Belichting-->
+    <a-light
+      id="hoofdlicht"
+      color="#ffffff"
+      type="ambient"
+    ></a-light>
+    <a-light
+      id="schijnwerper"
+      position="0.25 3.1 -5.1"
+      rotation="-90 0 0"
+      type="spot"
+      angle="45"
+      intensity="1.480"
+    ></a-light>
+    <a-light
+      id="sfeerlicht"
+      color="#ffffff"
+      type="directional"
+      rotation="-90 0 0"
+      position="0 2.150 0"
+      visible="false"
+      intensity="0.2"
+    ></a-light>
+
+    <!-- initialiseer blender modellen-->
+    <a-assets id="assets">
+
+      <!--Voeg rijst toe-->
+      <a-asset-item
+                    id="rijstinhand-obj"
+                    src="images/nigiriRijst.obj">
+      </a-asset-item>
+
+
+      <a-asset-item
+                    id="rijstinhand-mtl"
+                    src="images/nigiriRijst.mtl">
+      </a-asset-item>
+      <!--Laad bakje model-->
+        <a-asset-item
+                      id="bakje-obj"
+                      src="images/bakje.obj">
+        </a-asset-item>
+
+        <a-asset-item
+                      id="bakje-mtl"
+                      src="images/bakje.mtl">
+        </a-asset-item>
+
+
+        <!--sushi nigiri model-->
+        <a-asset-item
+                      id="tree-obj"
+                      src="images/SushiNigiri.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="tree-mtl"
+                      src="images/SushiNigiri.mtl">
+        </a-asset-item>
+
+        <!--sushi nigiri model tonijn-->
+        <a-asset-item
+                      id="sushiTonijn-obj"
+                      src="images/nigiriTonijn.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="sushiTonijn-mtl"
+                      src="images/nigiriTonijn.mtl">
+        </a-asset-item>
+
+        <!--Hosamki zalm-->
+        <a-asset-item
+                      id="hosaZalm-obj"
+                      src="images/hosomakizalm.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="hosaZalm-mtl"
+                      src="images/hosomakizalm.mtl">
+        </a-asset-item>
+
+        <!--Hosamki Komkommer -->
+        <a-asset-item
+                      id="hosaKomkommer-obj"
+                      src="images/hosomakikomkommer.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="hosaKomkommer-mtl"
+                      src="images/hosomakikomkommer.mtl">
+        </a-asset-item>
+
+
+        <!--hangiri model-->
+        <a-asset-item
+                      id="hangiri-obj"
+                      src="images/groteHangiri.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="hangiri-mtl"
+                      src="images/groteHangiri.mtl">
+        </a-asset-item>
+
+        <!--hangiri model leeg-->
+        <a-asset-item
+                      id="hangirihalfleeg-obj"
+                      src="images/hangiri.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="hangirihalfleeg-mtl"
+                      src="images/hangiri.mtl">
+        </a-asset-item>
+        <!--Rijst voor in hangiri bak-->
+        <a-asset-item
+                      id="hangiririjst-obj"
+                      src="images/hangiririjst.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="hangiririjst-mtl"
+                      src="images/hangiririjst.mtl">
+        </a-asset-item>
+        <!--Maak fornuis aan-->
+        <a-asset-item
+                      id="fornuis-obj"
+                      src="images/fornuis.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="fornuis-mtl"
+                      src="images/fornuis.mtl">
+        </a-asset-item>
+
+        <!--bar meubel-->
+        <a-asset-item
+                      id="bar-obj"
+                      src="images/final_bar.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="bar-mtl"
+                      src="images/final_bar.mtl">
+        </a-asset-item>
+
+        <!--Recepten boek-->
+        <a-asset-item
+                      id="recept-obj"
+                      src="images/kookboek1.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="recept-mtl"
+                      src="images/kookboek1.mtl">
+        </a-asset-item>
+
+        <!--mes-->
+        <a-asset-item
+                      id="mes-obj"
+                      src="images/mes.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="mes-mtl"
+                      src="images/mes.mtl">
+        </a-asset-item>
+
+        <!--Plakje zalm-->
+        <a-asset-item
+                      id="plakzalm-obj"
+                      src="images/plakjeZalm.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="plakzalm-mtl"
+                      src="images/plakjeZalm.mtl">
+        </a-asset-item>
+
+        <!--Plakje tonijn-->
+        <a-asset-item
+                      id="tonijn-obj"
+                      src="images/tonijn.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="tonijn-mtl"
+                      src="images/tonijn.mtl">
+        </a-asset-item>
+
+        <!--Gesneden zalm-->
+        <a-asset-item
+                      id="snijzalm-obj"
+                      src="images/gesnedenZalm.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="snijzalm-mtl"
+                      src="images/gesnedenZalm.mtl">
+        </a-asset-item>
+
+        <!-- Inladen pan -->
+        <a-asset-item
+                      id="pan-obj"
+                      src="images/pan.obj">
+        </a-asset-item>
+
+        <a-asset-item
+                      id="pan-mtl"
+                      src="images/pan.mtl">
+        </a-asset-item>
+
+        <!--Inladen sushi set-->
+        <a-asset-item
+                      id="sushiset-obj"
+                      src="images/sushiSet.obj">
+        </a-asset-item>
+
+        <a-asset-item
+                      id="sushiset-mtl"
+                      src="images/sushiSet.mtl">
+        </a-asset-item>
+        <!--Inladen mannetje-->
+
+        <a-asset-item
+                      id="klantlichaam-obj"
+                      src="images/man.obj">
+        </a-asset-item>
+        <a-asset-item
+                      id="klantlichaam-mtl"
+                      src="images/man.mtl">
+        </a-asset-item>
+
+        <a-asset-item
+          id="komkommeringr-obj"
+          src="images/komkommeringr.obj">
+        </a-asset-item>
+
+        <a-asset-item
+          id="komkommeringr-mtl"
+          src="images/komkommeringr.mtl">
+        </a-asset-item>
+
+        <a-asset-item
+          id="rollenKomkommer-obj"
+          src="images/rollenKomkommer.obj">
+        </a-asset-item>
+
+        <a-asset-item
+          id="rollenKomkommer-mtl"
+          src="images/rollenKomkommer.mtl">
+        </a-asset-item>
+
+        <a-asset-item
+          id="rollenZalm-obj"
+          src="images/oprollenZalm.obj">
+        </a-asset-item>
+
+        <a-asset-item
+          id="rollenZalm-mtl"
+          src="images/oprollenZalm.mtl">
+        </a-asset-item>
+
+        <a-asset-item
+          id="geheleKomkommer-obj"
+          src="images/geheleKomkommer.obj">
+        </a-asset-item>
+
+        <a-asset-item
+          id="geheleKomkommer-mtl"
+          src="images/geheleKomkommer.mtl">
+        </a-asset-item>
+
+
+        <!--images voor tekstballon-->
+        <img id="txtballoon" src="images/tekstballoon.png">
+      </a-assets>
+
+    <!--Laad het bakje model-->
+    <a-entity id="zalmbak" position="1.575 0.8 -2.7" obj-model="obj: #bakje-obj; mtl: #bakje-mtl" scale="0.7 0.7 0.7"></a-entity>
+    <a-entity id="tonijnbak" position="0.789 0.8 -2.7" obj-model="obj: #bakje-obj; mtl: #bakje-mtl" scale="0.7 0.7 0.7"></a-entity>
+    <a-entity id="komkommerbak" position="0.022 0.8 -2.7" obj-model="obj: #bakje-obj; mtl: #bakje-mtl" scale="0.7 0.7 0.7"></a-entity>
+    <a-entity id="noribak" position="-0.744 0.8 -2.7" obj-model="obj: #bakje-obj; mtl: #bakje-mtl" scale="0.7 0.7 0.7"></a-entity>
+
+    <!--Laad het hangiri model-->
+    <a-entity id="hangiri" position="-1.5 0.8 -1.8" obj-model="obj: #hangirihalfleeg-obj; mtl: #hangirihalfleeg-mtl"></a-entity>
+
+    <!--Laad het fornuis in-->
+    <a-entity material="shader: flat" id="fornuis" rotation="0 -90 0" position="-2 0.850 -0.250" obj-model="obj: #fornuis-obj; mtl: #fornuis-mtl"></a-entity>
+
+    <!--Laad het bar meubel-->
+    <a-entity material="shader: flat" id="bar" rotation="0 90 0" position="0.3 0 -3" obj-model="obj: #bar-obj; mtl: #bar-mtl"></a-entity>
+
+    <!--Laad het receptenboek-->
+    <a-entity id="recept" rotation="0 180 0" position="0.3 0 1.5" obj-model="obj: #recept-obj; mtl: #recept-mtl"></a-entity>
+
+    <!--Laad het mes-->
+    <a-entity id="mes" position="2.132 0.7 0.6" obj-model="obj: #mes-obj; mtl: #mes-mtl"></a-entity>
+
+    <!--Laad plakjes zalm-->
+    <a-entity id="plakzalm" position="2.78 0.7 -2.7" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl" visible="false"></a-entity>
+    <a-entity id="plakzalm1" position="3.22 0.7 -2.7" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl" visible="false"></a-entity>
+    <a-entity id="plakzalm2" position="2.78 0.7 -2.3" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl" visible="false"></a-entity>
+    <a-entity id="plakzalm3" position="3.22 0.7 -2.3" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl" visible="false"></a-entity>
+
+    <!--Plakjes tonijn-->
+    <a-entity id="plakTonijn" position="2.78 0.7 -2.7" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl" visible="false"></a-entity>
+    <a-entity id="plakTonijn2" position="3.22 0.7 -2.7" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl" visible="false"></a-entity>
+    <a-entity id="plakTonijn3" position="2.78 0.7 -2.3" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl" visible="false"></a-entity>
+    <a-entity id="plakTonijn4" position="3.22 0.7 -2.3" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl" visible="false"></a-entity>
+
+    <!--komkommer-->
+    <a-entity id="komkommer" position="-0.020 0.100 -0.320" scale="1 1 0.8" rotation="0 90 0" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+    <a-entity id="komkommer1" position="-0.020 0.100 -0.130" scale="1 1 0.8" rotation="0 90 0" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+    <a-entity id="komkommer2" position="-0.020 0.100 -0.020" scale="1 1 0.8" rotation="0 90 0" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+    <a-entity id="komkommer3" position="-0.020 0.100 -0.360" scale="1 1 0.8" rotation="0 90 0" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+
+    <!--komkommer-->
+    <a-box id="norivel" position="0.020 -0.110 -0.360" src="images/norivel.jpeg" scale="0.750 0.5 0.08"></a-box>
+
+    <!--Zalm ongesneden-->
+    <a-entity id="zalm" position="2.042 0.8 -0.6" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl"></a-entity>
+    <a-entity id="zalm1" position="2.042 0.8 -0.4" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl"></a-entity>
+    <a-entity id="zalm2" position="2.042 0.8 -0.2" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl"></a-entity>
+    <a-entity id="zalm3" position="2.042 0.8 0" obj-model="obj: #plakzalm-obj; mtl: #plakzalm-mtl"></a-entity>
+
+    <!--Tonijn ongesneden-->
+    <a-entity id="tonijn" position="2.529 0.8 -0.6" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl"></a-entity>
+    <a-entity id="tonijn1" position="2.529 0.8 -0.4" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl"></a-entity>
+    <a-entity id="tonijn2" position="2.529 0.8 -0.2" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl"></a-entity>
+    <a-entity id="tonijn3" position="2.529 0.8 0" obj-model="obj: #tonijn-obj; mtl: #tonijn-mtl"></a-entity>
+
+    <!--Komkommer ongesneden-->
+    <a-entity id="komkommerongesneden" position="3.013 1.066 -0.309" scale="1 1 0.8" rotation="0 0 360" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+    <a-entity id="komkommer1ongesneden" position="2.928 1.070 -0.311" scale="1 1 0.8" rotation="0 0 90" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+    <a-entity id="komkommer2ongesneden" position="3.017 0.989 -0.306" scale="1 1 0.8" rotation="0 0 270" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+    <a-entity id="komkommer3ongesneden" position="2.926 0.985 -0.311" scale="1 1 0.8" rotation="0 0 180" obj-model="obj: #komkommeringr-obj; mtl: #komkommeringr-mtl" visible="false"></a-entity>
+
+    <a-entity id="geheleKomkommer" position="3 1.054 -0.299" scale="0.790 0.710 0.710" obj-model="obj: #geheleKomkommer-obj; mtl: #geheleKomkommer-mtl"></a-entity>
+    <!-- Laad Hosomaki model in voor rollen komkommer -->
+		<a-entity id="rollenKomkommer" position="0.333 0.9 -1.650" obj-model="obj: #rollenKomkommer-obj; mtl: #rollenKomkommer-mtl" scale="0.5 0.5 0.45" rotation="0 90 0" visible="false"></a-entity>
+
+    <!-- Laad Hosomaki model in voor rollen zalm -->
+    <a-entity id="rollenZalm" position="0.333 0.9 -1.650" obj-model="obj: #rollenZalm-obj; mtl: #rollenZalm-mtl" scale="0.5 0.5 0.45" rotation="0 90 0" visible="false"></a-entity>
+
+    <!--Laad de pan in-->
+    <a-entity
+      id="pan"
+      rotation="0 -90 0"
+      position="-1.993 0.837 -0.238"
+      obj-model="obj: #pan-obj; mtl: #pan-mtl">
+    </a-entity>
+
+    <!--Laad het sushiset model-->
+    <a-entity id="sushiset" rotation="0 90 0" position="0.3 0.9 -4.4" obj-model="obj: #sushiset-obj; mtl: #sushiset-mtl">
+      <a-text
+        id="klanttekst"
+        value=""
+        position="1.167 2.038 0.697"
+        rotation="0 -90 0"
+        color="black"
+        width="3.5"
+        height="3.5"
+        scale="0.8 0.8 0.8">
+      </a-text>
+    </a-entity>
+
+    <!--Eind box-->
+    <a-box
+    id="eindtekst"
+    scale="-1 -1 -1"
+    height="2.370"
+    width="2.410"
+    depth="3.180"
+    rotation="90 0 0"
+    position="0.299 1.622 -0.280"
+    material="opacity:0.75"
+    color="#000000"
+    visible="false">
+      <a-text id="eindtekstvalue" scale="0.5 0.5 1" position="1.055 0.988 0.15" rotation="-90 180 0" value="Bedankt voor uw deelname.\n Veel plezier met sushi koken!"></a-text>
+    </a-box>
+
+    <!--Laad mannetje in-->
+    <a-entity
+      id="persoon"
+      position="0.364 1.771 -5.3"
+      rotation="0 -65 0"
+      scale="4 4 4"
+      obj-model="obj: #klantlichaam-obj; mtl: #klantlichaam-mtl"
+      >
+    </a-entity>
+
+    <!--Animatie voor cursor-->
+    <a-animation id="cursorAnimatie" begin="mouseenter" attribute="geometry.thetaLength" fill="forwards" from="360" to="0" easing="ease-in"></a-animation>
+    <a-animation id="cursorAnimatieEnd" begin="mouseleave" attribute="geometry.thetaLength" fill="backwards" from="0" to="360" dur="0"></a-animation>
+
+
+      <!-- Laad cursor en camera(pas aan voor definitieve versie) -->
+<a-entity position="0 1.8 0">
+  <!--Camera-->
+  <a-entity
+    id="camera"
+    camera
+    look-controls
+    rotation="0 0 0"
+    wasd-controls
+  >
+    <!-- cursor -->
+    <a-entity
+      cursor="fuse: true; maxDistance: 500; timeout: 2000;"
+      id="cursor"
+      position="0 0 -1"
+      geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03; thetaLength: 360; thetaStart: 90;"
+      material="color: #439DC2;"
+    >
+
+    </a-entity>
+    <a-entity
+      id="cursor-loader"
+      position="0 0 -1.0001"
+      geometry="primitive: ring; radiusOuter: 0.06; radiusInner: 0.03;"
+      material="color: #439DC2;"
+    >
+    </a-entity>
+  </a-entity>
+</a-entity>
+    </a-scene>
+  </body>
+</html>
